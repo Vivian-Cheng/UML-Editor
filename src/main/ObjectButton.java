@@ -4,54 +4,38 @@ import javax.swing.*;
 
 public class ObjectButton extends JButton {
   // ObjectButton default constructor
-  public ObjectButton(String buttonIconUrl, CanvasDemo canvasDemo){
+  public ObjectButton(String buttonIconUrl, Mode inputMode, CanvasDemo canvasDemo){
     //super.setBackground(Color.red);
-    init(buttonIconUrl, canvasDemo);
+    init(buttonIconUrl, inputMode, canvasDemo);
   }
 
-  static String currentMode = "";
+  public static String currentModeName = "";
+  public static Mode currentMode;
 
   // init method for constructor
-  private void init(String buttonIconUrl, CanvasDemo canvasDemo){
+  private void init(String buttonIconUrl, Mode inputMode, CanvasDemo canvasDemo){
     // UI setting
     setPreferredSize(new Dimension(80, 100));
     setIcon(createImageIcon(buttonIconUrl));
+    setOpaque(true);
     //setBackground(Color.red);
-
-    // Mouse adapter -> execute drawing
-    MouseAdapter mouseListener = new MouseAdapter() {
-      @Override
-      public void mousePressed(MouseEvent e) {
-        if (currentMode == getMode()) {
-          //super.mouseClicked(e);
-          Point pStart = e.getPoint();
-          draw(pStart, canvasDemo);
-          System.out.println(pStart);
-          System.out.println(currentMode);
-        }else{
-          canvasDemo.removeMouseListener(this);
-        }
-        
-      }
-    };
 
     // Button actionlistener
     addActionListener(new ActionListener(){
       @Override
       public void actionPerformed(ActionEvent e){
-        currentMode = getMode();
-        canvasDemo.addMouseListener(mouseListener);
+        if (inputMode.getModeName() == currentModeName){
+          System.out.println(currentModeName);
+          currentMode = inputMode;
+          canvasDemo.addMouseListener(currentMode);
+        }else{
+          canvasDemo.removeMouseListener(currentMode);
+          currentMode = inputMode;
+          currentModeName = inputMode.getModeName();
+          canvasDemo.addMouseListener(currentMode);
+        }
       }      
     });    
-  }
-
-  // create object
-  public void draw(Point pStart, CanvasDemo canvasDemo){
-    //System.out.println("draw~~");
-  }
-
-  public String getMode(){
-    return "";
   }
 
 

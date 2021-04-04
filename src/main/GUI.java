@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class GUI {
   public GUI(){
+
     JFrame frame = new JFrame("UML Editor");
     String[][] buttonMenuList = {{"File"},
                                  {"Edit","Group","UnGroup","Change object name"}};

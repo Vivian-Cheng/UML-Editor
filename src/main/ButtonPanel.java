@@ -29,7 +29,7 @@ public class ButtonPanel extends JPanel {
     buttonList.add(selectButton);
     selectButton.addActionListener(new PanelButtonListener());
 
-    ObjectButton associationButton = new ObjectButton(("/resources/icon/2.png"), new ModeAssociation());
+    ObjectButton associationButton = new ObjectButton(("/resources/icon/2.png"), new ModeAssociation(canvasDemo));
     add(associationButton);
     buttonList.add(associationButton);
     associationButton.addActionListener(new PanelButtonListener());

@@ -21,7 +21,7 @@ public class CanvasDemo extends JPanel{
     super.paintComponent(g);
     //System.out.println("shapeList.size()"+shapeList.size());
     for ( int i = shapeList.size()-1 ; i>=0 ;i--){
-    System.out.println("in the Canvas paintcomponent and paint shape");
+    //System.out.println("in the Canvas paintcomponent and paint shape");
     Shape shape = shapeList.get(i);
     shape.draw(g);
   }

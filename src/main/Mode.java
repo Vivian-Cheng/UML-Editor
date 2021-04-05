@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class Mode implements MouseListener {
 
   public String modeName = "Mode";
+  public boolean isOn = false;
   public List<Shape> shapeList;
 
   public void setModeName(String modeName){
@@ -15,6 +16,14 @@ public class Mode implements MouseListener {
 
   public String getModeName(){
     return modeName;
+  }
+
+  public void setIsOn(boolean isOn){
+    this.isOn = isOn;
+  }
+
+  public boolean getIsOn(){
+    return isOn;
   }
 
   public void mouseClicked(MouseEvent e){

@@ -54,5 +54,9 @@ public class UmlClass extends BasicObject {
       pEnd = getEndPoint(P_START,i);
       g2d.drawLine(pStart.x, pStart.y, pEnd.x, pEnd.y);
     }
+
+    if(inSelectMode){
+      drawPort(g2d);
+    }
   }
 }

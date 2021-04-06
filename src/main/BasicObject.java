@@ -17,6 +17,7 @@ public class BasicObject extends Shape {
   public Path2D PORT_BOTTOM_AREA = new Path2D.Double();
   public Path2D PORT_LEFT_AREA = new Path2D.Double();
   public Path2D PORT_RIGHT_AREA = new Path2D.Double();
+  
 
   public void setPort(){
     PORT_TOP.x = P_START.x + (WIDTH/2);
@@ -70,6 +71,15 @@ public class BasicObject extends Shape {
       port = PORT_RIGHT;
     }
     return port;
+  }
+
+  public void drawPort(Graphics g){
+    Graphics2D g2d = (Graphics2D) g;
+    g2d.setColor(Color.BLACK);
+    g2d.fillRect((PORT_TOP.x - 2), (PORT_TOP.y - 4), 4, 4);
+    g2d.fillRect((PORT_BOTTOM.x - 2), PORT_BOTTOM.y, 4, 4);
+    g2d.fillRect((PORT_LEFT.x - 4), (PORT_LEFT.y - 2), 4, 4);
+    g2d.fillRect((PORT_RIGHT.x), (PORT_RIGHT.y - 2), 4, 4);
   }
 
 

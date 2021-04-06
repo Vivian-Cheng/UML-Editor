@@ -28,5 +28,8 @@ public class UmlUseCase extends BasicObject {
     //System.out.println("Drawing...");
     g.setColor(Color.BLACK);
     g.drawOval(P_START.x, P_START.y, WIDTH, HEIGHT);
+    if(inSelectMode){
+      drawPort(g);
+    }
   }
 }

@@ -24,7 +24,7 @@ public class ButtonPanel extends JPanel {
     setBackground(backgroundColor);
     this.canvasDemo = canvasDemo;
 
-    ObjectButton selectButton = new ObjectButton(("/resources/icon/1.png"), new ModeSelect());
+    ObjectButton selectButton = new ObjectButton(("/resources/icon/1.png"), new ModeSelect(canvasDemo));
     add(selectButton);
     buttonList.add(selectButton);
     selectButton.addActionListener(new PanelButtonListener());

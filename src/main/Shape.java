@@ -6,8 +6,8 @@ public class Shape {
   public boolean containPoint(Point p){
     return false;
   }
-  public Point getPort(Point p){
-    Point port = new Point();
+  public Port getPort(Point p){
+    Port port = new Port();
     return port;
   }
 }

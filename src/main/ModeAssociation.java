@@ -6,8 +6,8 @@ public class ModeAssociation extends Mode {
   public CanvasDemo canvasDemo;
   public boolean objSelect = false;
   public int selectObjIndex;
-  public Point portStart;
-  public Point portEnd;
+  public Port portStart;
+  public Port portEnd;
   public ModeAssociation(CanvasDemo canvas){
     this.modeName = "Association";
     canvasDemo = canvas;
@@ -31,11 +31,7 @@ public class ModeAssociation extends Mode {
     }
   }
   public void mouseDragged(MouseEvent e) {
-    //if(objSelect){
-    //  System.out.println("mouseDragged");
-    //}
     System.out.println("mouseDragged");
-    
   }
   public void mouseReleased(MouseEvent e) {
     if(objSelect){
@@ -48,10 +44,9 @@ public class ModeAssociation extends Mode {
           portEnd = shape.getPort(pEnd);
           System.out.println(portEnd);
           objSelect = true;
+          canvasDemo.shapeList.add(new LineAssociation(portStart, portEnd));
         }
       }
-    }
-    
-  }
- 
+    }  
+  } 
 }

@@ -34,12 +34,12 @@ public class ButtonPanel extends JPanel {
     buttonList.add(associationButton);
     associationButton.addActionListener(new PanelButtonListener());
 
-    ObjectButton generalizationButton = new ObjectButton(("/resources/icon/3.png"), new ModeGeneralization());
+    ObjectButton generalizationButton = new ObjectButton(("/resources/icon/3.png"), new ModeGeneralization(canvasDemo));
     add(generalizationButton);
     buttonList.add(generalizationButton);
     generalizationButton.addActionListener(new PanelButtonListener());
 
-    ObjectButton compositionButton = new ObjectButton(("/resources/icon/4.png"), new ModeComposition());
+    ObjectButton compositionButton = new ObjectButton(("/resources/icon/4.png"), new ModeComposition(canvasDemo));
     add(compositionButton);
     buttonList.add(compositionButton);
     compositionButton.addActionListener(new PanelButtonListener());

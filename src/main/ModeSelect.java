@@ -10,6 +10,7 @@ public class ModeSelect extends Mode {
   public Point pStart = new Point();
   public Point pEnd = new Point();
   public boolean isPressed = false;
+  public boolean isSelected = false;
   public ModeSelect(CanvasDemo canvas){
     this.modeName = "Select";
     canvasDemo = canvas;
@@ -17,17 +18,25 @@ public class ModeSelect extends Mode {
 
   @Override
   public void mousePressed(MouseEvent e){
-    isPressed = true;
-    pStart = e.getPoint();
-    System.out.println(getModeName());
-    System.out.println(pStart);
-    for( int i = canvasDemo.shapeList.size()-1; i>=0; i--){
-      Shape shape = canvasDemo.shapeList.get(i);
-      if(shape.containPoint(pStart)){
-        System.out.println("select object");
-        shape.inSelectMode = true;
-      }else{
-        shape.inSelectMode = false;
+    if(canvasDemo.currentMode.getModeName() == modeName){
+      isPressed = true;
+      pStart = e.getPoint();
+      System.out.println(getModeName());
+      System.out.println(pStart);
+      isSelected = false;
+      for( int i = canvasDemo.shapeList.size()-1; (i>=0) && !isSelected; i--){
+        Shape shape = canvasDemo.shapeList.get(i);
+        if(shape.containPoint(pStart)){
+          if(lastSelectObj != null){
+            lastSelectObj.setSelectMode(false);
+          }
+          System.out.println("select object");
+          shape.setSelectMode(true);
+          lastSelectObj = shape;
+          isSelected = true;
+        }else{
+          shape.setSelectMode(false);
+        }
       }
     }
   }

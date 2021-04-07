@@ -7,8 +7,8 @@ public class GUI {
     JFrame frame = new JFrame("UML Editor");
     String[][] buttonMenuList = {{"File"},
                                  {"Edit","Group","UnGroup","Change object name"}};
-    ButtonMenuBar buttonMenuBar = new ButtonMenuBar(buttonMenuList, Color.darkGray);
-    CanvasDemo canvasDemo = new CanvasDemo();                            
+    CanvasDemo canvasDemo = new CanvasDemo();
+    ButtonMenuBar buttonMenuBar = new ButtonMenuBar(canvasDemo, Color.darkGray);                            
     ButtonPanel buttonPanel = new ButtonPanel(Color.white, canvasDemo);
     
     frame.setJMenuBar(buttonMenuBar);

@@ -58,6 +58,7 @@ public class ButtonPanel extends JPanel {
   class PanelButtonListener implements ActionListener{
     public void actionPerformed(ActionEvent e){
       ObjectButton source = (ObjectButton)e.getSource();
+      canvasDemo.currentMode = source.mode;
       if (source.mode.getModeName() == currentModeName){
           System.out.println(currentModeName);
           currentMode = source.mode;

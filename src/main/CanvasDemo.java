@@ -8,6 +8,7 @@ public class CanvasDemo extends JPanel{
   public CanvasDemo(){
     init();
   }
+  public Mode currentMode;
 
   public List<Shape> shapeList = new ArrayList<Shape>();
 

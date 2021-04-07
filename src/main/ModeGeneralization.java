@@ -21,7 +21,7 @@ public class ModeGeneralization extends Mode {
     objSelect = false;
     for( int i = canvasDemo.shapeList.size()-1; (i>=0) && (!objSelect); i--){
       Shape shape = canvasDemo.shapeList.get(i);
-      if(shape.containPoint(pStart)){
+      if(shape.containPoint(pStart) && (!shape.isComposite)){
         System.out.println("select object");
         selectObjIndex = i;
         portStart = shape.getPort(pStart);

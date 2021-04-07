@@ -9,10 +9,10 @@ public class BasicObject extends Shape {
   public int HEIGHT;
   public int WIDTH;
   public int NUM_OF_LINE;
-  public Port PORT_TOP = new Port();
-  public Port PORT_BOTTOM = new Port();
-  public Port PORT_LEFT = new Port();
-  public Port PORT_RIGHT = new Port();
+  //public Port PORT_TOP = new Port();
+  //public Port PORT_BOTTOM = new Port();
+  //public Port PORT_LEFT = new Port();
+  //public Port PORT_RIGHT = new Port();
   public Path2D PORT_TOP_AREA = new Path2D.Double();
   public Path2D PORT_BOTTOM_AREA = new Path2D.Double();
   public Path2D PORT_LEFT_AREA = new Path2D.Double();
@@ -91,7 +91,11 @@ public class BasicObject extends Shape {
     g2d.fillRect((PORT_RIGHT.x), (PORT_RIGHT.y - 2), 4, 4);
   }
 
-
+  /*
+  public boolean isContained(Rectangle2D.Double selectRegion){
+    return (selectRegion.contains(REGION));
+  }
+  */
 
   
 

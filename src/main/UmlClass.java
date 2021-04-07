@@ -15,6 +15,7 @@ public class UmlClass extends BasicObject {
     this.NUM_OF_LINE = 2;
     setPort();
     setPortArea();
+    setRegion(p, HEIGHT, WIDTH);
     System.out.println(PORT_TOP);
     System.out.println(PORT_BOTTOM);
     System.out.println(PORT_LEFT);

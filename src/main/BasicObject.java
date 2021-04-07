@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.Path2D;
+import java.awt.geom.*;
 
 
 public class BasicObject extends Shape {
@@ -17,6 +17,7 @@ public class BasicObject extends Shape {
   public Path2D PORT_BOTTOM_AREA = new Path2D.Double();
   public Path2D PORT_LEFT_AREA = new Path2D.Double();
   public Path2D PORT_RIGHT_AREA = new Path2D.Double();
+  //public Rectangle2D.Double REGION = new Rectangle2D.Double();
   
 
   public void setPort(){
@@ -71,6 +72,14 @@ public class BasicObject extends Shape {
       port = PORT_RIGHT;
     }
     return port;
+  }
+
+  public void setRegion(Point p, int width, int height){
+    this.REGION = new Rectangle2D.Double(p.x, p.y, width, height);
+  }
+
+  public Rectangle2D.Double getRegion(){
+    return REGION;
   }
 
   public void drawPort(Graphics g){

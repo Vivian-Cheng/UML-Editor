@@ -11,6 +11,7 @@ public class UmlUseCase extends BasicObject {
     this.WIDTH = 100;
     setPort();
     setPortArea();
+    setRegion(p, HEIGHT, WIDTH);
     System.out.println(PORT_TOP);
     System.out.println(PORT_BOTTOM);
     System.out.println(PORT_LEFT);

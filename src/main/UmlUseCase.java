@@ -19,6 +19,14 @@ public class UmlUseCase extends BasicObject {
     objectBorder = new Ellipse2D.Double(P_START.x,P_START.y,WIDTH,HEIGHT);
     
   }
+  @Override
+  public void reset(Point p){
+    P_START = p;
+    setPort();
+    setPortArea();
+    setRegion(p, HEIGHT, WIDTH);
+    objectBorder = new Ellipse2D.Double(P_START.x,P_START.y,WIDTH,HEIGHT);
+  }
 
   public boolean containPoint(Point p){
     return objectBorder.contains(p);
@@ -29,6 +37,11 @@ public class UmlUseCase extends BasicObject {
     //System.out.println("Drawing...");
     g.setColor(Color.BLACK);
     g.drawOval(P_START.x, P_START.y, WIDTH, HEIGHT);
+    Point pText = new Point();
+    pText.x = P_START.x + 5;
+    pText.y = (P_START.y + 30) + g.getFontMetrics().getHeight();
+    //System.out.println(objectName);
+    g.drawString(objectName,pText.x, pText.y);
     if(inSelectMode){
       drawPort(g);
     }

@@ -29,6 +29,7 @@ public class ButtonMenuBar extends JMenuBar{
     unGroupItem.addActionListener(new UnGroupItemListener());
     JMenuItem changeNameItem = new JMenuItem("Change object name");
     editMenu.add(changeNameItem);
+    changeNameItem.addActionListener(new ChangeNameListener());
     add(editMenu);
     /*
     for (int row = 0; row < itemList.length; row++){
@@ -82,6 +83,27 @@ public class ButtonMenuBar extends JMenuBar{
             canvasDemo.shapeList.add(shape.objList.get(i));
           }
           canvasDemo.shapeList.removeAll(tempList);
+        }
+      }
+    }
+  }
+  class ChangeNameListener implements ActionListener{
+    public void actionPerformed(ActionEvent e){
+      if(canvasDemo.currentMode.getModeName() == "Select"){
+        List<Shape> tempList = new ArrayList<Shape>();
+        for(int i = canvasDemo.shapeList.size()-1; i>=0; i--){
+          if(!canvasDemo.shapeList.get(i).isComposite){
+            if(canvasDemo.shapeList.get(i).getSelectMode()){
+                tempList.add(canvasDemo.shapeList.get(i));
+              }
+          }
+        }
+        System.out.println(tempList.size());
+        if(tempList.size() == 1){
+          String objectName = JOptionPane.showInputDialog(canvasDemo, "Please enter an object name:", "Change Object Name", JOptionPane.QUESTION_MESSAGE);
+          tempList.get(0).setObjName(objectName);
+        }else{
+          JOptionPane.showMessageDialog(canvasDemo, "Please select one object", "Error", JOptionPane.ERROR_MESSAGE);
         }
       }
     }

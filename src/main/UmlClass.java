@@ -22,6 +22,14 @@ public class UmlClass extends BasicObject {
     System.out.println(PORT_RIGHT);
     objectBorder = new Rectangle2D.Double(P_START.x,P_START.y,WIDTH,HEIGHT);
   }
+  @Override
+  public void reset(Point p){
+    P_START = p;
+    setPort();
+    setPortArea();
+    setRegion(p, HEIGHT, WIDTH);
+    objectBorder = new Rectangle2D.Double(P_START.x,P_START.y,WIDTH,HEIGHT);
+  }
 
   public Point getStartPoint(Point p, int numLine){
     Point pStart = new Point();
@@ -55,6 +63,11 @@ public class UmlClass extends BasicObject {
       pEnd = getEndPoint(P_START,i);
       g2d.drawLine(pStart.x, pStart.y, pEnd.x, pEnd.y);
     }
+    Point pText = new Point();
+    pText.x = P_START.x + 5;
+    pText.y = (P_START.y + 5) + g2d.getFontMetrics().getHeight();
+    //System.out.println(objectName);
+    g2d.drawString(objectName,pText.x, pText.y);
 
     if(inSelectMode){
       drawPort(g2d);

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class CompositeObject extends Shape{
-  public Point P_START = new Point();
+  //public Point P_START = new Point();
   public int HEIGHT;
   public int WIDTH;
   //public int NUM_OF_LINE;
@@ -19,6 +19,18 @@ public class CompositeObject extends Shape{
     this.objList = objList;
     set();
     isComposite = true;
+  }
+
+  @Override
+  public void reset(Point p){
+    Point newP = new Point();
+    for(int i = 0; i < objList.size(); i++){
+      newP.x = objList.get(i).P_START.x + (p.x - P_START.x);
+      newP.y = objList.get(i).P_START.y + (p.y - P_START.y);
+      objList.get(i).reset(newP);
+    }
+    P_START = p;
+    REGION = new Rectangle2D.Double(P_START.x,P_START.y,WIDTH,HEIGHT);
   }
   public void set(){
     System.out.println(objList.get(0));
@@ -74,6 +86,7 @@ public class CompositeObject extends Shape{
     for(int i = objList.size()-1; i>=0; i--){
       objList.get(i).setSelectMode(inSelectMode);
     }
+    this.inSelectMode = inSelectMode;
   }
   public boolean getSelectMode(){
     return inSelectMode;

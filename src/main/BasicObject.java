@@ -5,7 +5,6 @@ import java.awt.geom.*;
 
 public class BasicObject extends Shape {
   public void draw(Graphics g){}
-  public Point P_START;
   public int HEIGHT;
   public int WIDTH;
   public int NUM_OF_LINE;
@@ -18,7 +17,6 @@ public class BasicObject extends Shape {
   public Path2D PORT_LEFT_AREA = new Path2D.Double();
   public Path2D PORT_RIGHT_AREA = new Path2D.Double();
   //public Rectangle2D.Double REGION = new Rectangle2D.Double();
-  
 
   public void setPort(){
     PORT_TOP.x = P_START.x + (WIDTH/2);

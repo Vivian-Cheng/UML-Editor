@@ -44,7 +44,11 @@ public class ModeSelect extends Mode {
   public void mouseReleased(MouseEvent e){
     if(isPressed){
       pEnd = e.getPoint();
-      //System.out.println("pStart");
+      if(isSelected){
+        lastSelectObj.reset(pEnd);
+      }
+      
+      //System.out.println();
       //System.out.println(pStart);
       Rectangle2D.Double selectRegion = new Rectangle2D.Double(pStart.x, pStart.y, Math.abs(pEnd.x - pStart.x), Math.abs(pEnd.y - pStart.y));
       for( int i = canvasDemo.shapeList.size()-1; i>=0; i--){

@@ -36,7 +36,7 @@ public class CreateLineObjMode extends Mode {
     for (ShapeObj shapeObj : canvas.shapeList) {
       if (shapeObj instanceof BasicObj) {
         port = ((BasicObj) shapeObj).getNearPort(point);
-        if ( port != null) {
+        if (port != null) {
           return port;
         }
       }

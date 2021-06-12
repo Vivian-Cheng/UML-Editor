@@ -1,0 +1,49 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.geom.Ellipse2D;
+
+public class UmlUseCase extends BasicObject {
+  public Ellipse2D.Double objectBorder;
+
+  public UmlUseCase(Point p){
+    this.P_START = p;
+    this.HEIGHT = 80;
+    this.WIDTH = 100;
+    setPort();
+    setPortArea();
+    setRegion(p, HEIGHT, WIDTH);
+    System.out.println(PORT_TOP);
+    System.out.println(PORT_BOTTOM);
+    System.out.println(PORT_LEFT);
+    System.out.println(PORT_RIGHT);
+    objectBorder = new Ellipse2D.Double(P_START.x,P_START.y,WIDTH,HEIGHT);
+    
+  }
+  @Override
+  public void reset(Point p){
+    P_START = p;
+    setPort();
+    setPortArea();
+    setRegion(p, HEIGHT, WIDTH);
+    objectBorder = new Ellipse2D.Double(P_START.x,P_START.y,WIDTH,HEIGHT);
+  }
+
+  public boolean containPoint(Point p){
+    return objectBorder.contains(p);
+  }
+
+  @Override
+  public void draw(Graphics g){
+    System.out.println("Drawing...");
+    g.setColor(Color.BLACK);
+    g.drawOval(P_START.x, P_START.y, WIDTH, HEIGHT);
+    Point pText = new Point();
+    pText.x = P_START.x + 5;
+    pText.y = (P_START.y + 30) + g.getFontMetrics().getHeight();
+    //System.out.println(objectName);
+    g.drawString(objectName,pText.x, pText.y);
+    if(inSelectMode){
+      drawPort(g);
+    }
+  }
+}

@@ -26,7 +26,7 @@ public class Port {
     setPortArea();
   }
 
-  public void setPortArea(){
+  public void setPortArea() {
     Point p1 = new Point();
     Point p2 = new Point();
     Point p3 = new Point();
@@ -83,6 +83,7 @@ public class Port {
         break;
       case "West":
         g2d.fillRect((x - PORT_SIZE), (y - PORT_SIZE / 2), PORT_SIZE, PORT_SIZE);
+        break;
       default:
         break;
     }

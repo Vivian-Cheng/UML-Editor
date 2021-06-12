@@ -1,0 +1,22 @@
+package component.shape.line;
+
+import component.Port;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.BasicStroke;
+
+public class CompLine extends LineObj {
+  public CompLine(Port startPort, Port endPort) {
+    super(startPort, endPort);
+  }
+
+  @Override
+  public void drawArrow(Graphics2D g2d) {
+    g2d.setColor(Color.BLACK);
+    g2d.setStroke(new BasicStroke(THICKNESS));
+    g2d.drawPolygon(new int[] {endPort.x, arrowPoint1.x, arrowPoint3.x, arrowPoint2.x}, new int[] {endPort.y, arrowPoint1.y, arrowPoint3.y, arrowPoint2.y}, 4);
+    g2d.setColor(Color.white);
+    g2d.fillPolygon(new int[] {endPort.x, arrowPoint1.x, arrowPoint3.x, arrowPoint2.x}, new int[] {endPort.y, arrowPoint1.y, arrowPoint3.y, arrowPoint2.y}, 4);
+  }
+}

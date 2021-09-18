@@ -1,7 +1,3 @@
----
-title: 'UML Editor'
----
-
 UML Editor
 ===
 An UML Editor is a Java GUI that can be used to create  unified modeling language (UML) diagrams, which depicts a system and the interaction between different modules.
